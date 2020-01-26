@@ -7,6 +7,9 @@ class App extends React.Component {
     users: []
   };
   componentDidMount() {
+    this.requestData();
+  }
+  requestData = () => {
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "https://jsonplaceholder.typicode.com/users", true);
     xhr.onload = () => {
@@ -19,7 +22,7 @@ class App extends React.Component {
     };
 
     xhr.send();
-  }
+  };
   render() {
     const users = this.state.users.map(user => (
       <div key={user.id}>
